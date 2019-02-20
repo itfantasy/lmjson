@@ -18,7 +18,7 @@
 
 // ----------------------------------------------
 //
-// This file is a part of library UNISIMPLE
+// This file is a part of library lmjson
 //
 //      Desc:   JSON解析
 //      Author: kenkao
