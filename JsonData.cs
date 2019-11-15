@@ -679,17 +679,53 @@ namespace itfantasy.lmjson
         public int Add (object value)
         {
             JsonData data = ToJsonData (value);
-            return EnsureList ().Add (data);
+            return ((IList)this).Add(data);
+        }
+
+        public void RemoveAt(int index)
+        {
+            ((IList)this).RemoveAt(index);
+        }
+
+        public void Remove(object value)
+        {
+            ((IList)this).Remove(value);
+        }
+
+        public bool Contains(object value)
+        {
+            return ((IList)this).Contains(value);
+        }
+
+        public int IndexOf(object value)
+        {
+            return ((IList)this).IndexOf(value);
+        }
+
+        public void Insert(int index, object value)
+        {
+            ((IList)this).Insert(index, value);
+        }
+
+        public bool ContainsKey(object key)
+        {
+            return ((IDictionary)this).Contains(key);
+        }
+
+        public void Delete(object key)
+        {
+            ((IDictionary)this).Remove(key);
         }
 
         public void Clear ()
         {
-            if (IsObject) {
+            if (IsObject) 
+            {
                 ((IDictionary) this).Clear ();
                 return;
             }
-
-            if (IsArray) {
+            else if (IsArray) 
+            {
                 ((IList) this).Clear ();
                 return;
             }
